@@ -18,7 +18,10 @@ import io
 import psycopg2
 import warnings
 warnings.filterwarnings("ignore")
+import datetime
 
+now = datetime.datetime.now().strftime("%Y-%m-%d")
+date = now 
 
 psycopg2.extensions.register_type(psycopg2.extensions.UNICODE)
 psycopg2.extensions.register_type(psycopg2.extensions.UNICODEARRAY)
@@ -61,10 +64,12 @@ new_release_data2.columns = ['song_name','artist','artist_id','album_id']
 
 new_release_data3=new_release_data2
 
-new_release_data3['song_name']= new_release_data3['song_name'].str.encode('utf-8')
-new_release_data3['artist']= new_release_data3['artist'].str.encode('utf-8')
-new_release_data3['artist_id']= new_release_data3['artist_id'].str.encode('utf-8')
-new_release_data3['album_id'] = new_release_data3['album_id'].str.encode('utf-8')
+new_release_data3['song_name']= new_release_data3['song_name'].str.encode('ascii','ignore')
+new_release_data3['artist']= new_release_data3['artist'].str.encode('ascii','ignore')
+new_release_data3['artist_id']= new_release_data3['artist_id'].str.encode('ascii','ignore')
+new_release_data3['album_id'] = new_release_data3['album_id'].str.encode('ascii','ignore')
+new_release_data3['insert_date']=date
+
 
 engine = create_engine('postgresql://w205:1234@localhost:5432/final_project')
 
