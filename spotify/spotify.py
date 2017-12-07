@@ -113,7 +113,7 @@ artist_details3['image']=artist_details3['image'].str.encode('utf-8')
 #artist_details3['popularity']=artist_details3['popularity'].str.encode('utf-8')
 artist_details3['related_artist']=artist_details3['related_artist'].str.encode('utf-8')
 
-#engine = create_engine('postgresql://w205:1234@localhost:5432/final_project')
+engine = create_engine('postgresql://w205:1234@localhost:5432/final_project')
 artist_details3.to_sql('artist_detail', engine, if_exists='append',index=False)
 
 print('artist detail file completed')
@@ -258,19 +258,25 @@ print('artists top songs detail file completed')
 #########################################################################################################
 details = []
 song_list = []
+
+
 for i in new_release_data2['song_name']:
     track=(sp.search(q=i,type = 'track'))
-    song_id = track['tracks']['items'][0]['id']
-    song_name = track['tracks']['items'][0]['name']
+    song_id = 0 if len(track['tracks']['items'])== 0 else track['tracks']['items'][0]['id']
+    song_name = 0 if len(track['tracks']['items'])== 0 else track['tracks']['items'][0]['name']
     song_list.append([song_id,song_name])
-    
+
+ 
 song_list=pd.DataFrame(song_list)
 song_list.columns=['song_id','song_name']
+song_list = song_list[song_list.song_id != 0]
+song_list = song_list[song_list.song_name !=0]
+print(song_list)
 
 for inx, song in enumerate(song_list['song_id']):
     track = sp.track(str(song))
     features = sp.audio_features(str(song))
-    song_name = song_list['song_name'].loc[inx]
+    song_name = song_list['song_name'].iloc[inx]
     for i in track['artists']:
         token = util.prompt_for_user_token(username, scope, client_id, client_secret, redirect_uri)
         sp = spotipy.Spotify(auth=token)

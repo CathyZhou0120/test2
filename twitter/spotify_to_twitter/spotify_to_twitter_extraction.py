@@ -231,6 +231,8 @@ final = pd.DataFrame()
 final = pd.merge( result,tweets, on=['text'])
 final = pd.merge( final,artist_list3, on=['artist'], how='inner')
 
+#print(final)
+#final = final.drop_duplicates()
 #print(final['artist'].unique())
 #print(artist_list3['artist'].unique())
 
@@ -246,28 +248,35 @@ final = pd.merge( final,artist_list3, on=['artist'], how='inner')
 
 #final.drop_duplicates(keep="last",inplace=True)
 #print((final.columns))
-final['artist']=final['artist'].str.encode('ascii', errors='ignore')
-#final['text']=final['text'].str.encode('ascii', errors='ignore')
+final['artist']=final['artist'].str.encode('utf-8', errors='ignore')
+final['text']=final['text'].str.encode('utf-8', errors='ignore')
 #final['createdat']=final['createdat'].str.encode('ascii', errors='ignore')
-final['geolocation']=final['geolocation'].str.encode('ascii', errors='ignore')
-final['source']=final['source'].str.encode('ascii', errors='ignore')
-#final['hashtags']=final['hashtags'].str.encode('ascii', errors='ignore')
-final['name']=final['name'].str.encode('ascii', errors='ignore')
+final['geolocation']=final['geolocation'].str.encode('utf-8', errors='ignore')
+final['source']=final['source'].str.encode('utf-8', errors='ignore')
+final['hashtags']=final['hashtags'].str.encode('utf-8', errors='ignore')
+final['name']=final['name'].str.encode('utf-8', errors='ignore')
 #final['id']=final['id'].str.encode('ascii', errors='ignore')
-final['screen_name']=final['screen_name'].str.encode('ascii', errors='ignore')
-final['description']=final['description'].str.encode('ascii', errors='ignore')
-final['language']=final['language'].str.encode('ascii', errors='ignore')
-final['mention']=final['mention'].str.encode('ascii', errors='ignore')
-final['song_name']=final['song_name'].str.encode('ascii', errors='ignore')
+final['screen_name']=final['screen_name'].str.encode('utf-8', errors='ignore')
+final['description']=final['description'].str.encode('utf-8', errors='ignore')
+final['language']=final['language'].str.encode('utf-8', errors='ignore')
+final['mention']=final['mention'].str.encode('utf-8', errors='ignore')
+final['song_name']=final['song_name'].str.encode('utf-8', errors='ignore')
 #final['artist_id']=final['artist_id'].str.encode('ascii', errors='ignore')
-final['album_id']=final['album_id'].str.encode('ascii', errors='ignore')
+final['album_id']=final['album_id'].str.encode('utf-8', errors='ignore')
 #final['available_market']=final['available_market'].str.encode('ascii', errors='ignore')
+final['location']=final['location'].str.encode('utf-8', errors='ignore')
 
 
+final = final[['screen_name','id','name','description','hashtags','text','createdat','artist',
+'location','geolocation','language','source','followers_count','friends_count','listed_count','favourites_count','statuses_count','song_name','album_id']]
 
-final = final[['screen_name','id','name','description','hashtags','text','createdat','artist','geolocation','language','mention','song_name','album_id']]
+final2 = final.drop_duplicates()
 
+#print(final['mention'])
+print(len(final2))
 
+#print(mention)
+#print(final2)
 conn =psycopg2.connect(database="final_project", user="w205", password="1234", host="127.0.0.1", port="5432")
 
 engine = create_engine('postgresql://w205:1234@localhost:5432/final_project')
