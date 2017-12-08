@@ -61,6 +61,22 @@ df_song_list2.apply(lambda x: x.astype(str).str.lower())
 #print(len(df3))
 #print(len(df_song_list2))
 
+cur.execute("select distinct channel_name from tweet_stream_channel_filter")
+channel = cur.fetchall()
+
+channel2 = []
+for i in channel:
+    j = str(i[0])
+    channel_name = re.search('(listening\sto|now\splaying)\s(.*)',j)
+    if channel_name: 
+        channel2.append(channel_name.group(2))
+
+
+
+channel2 = pd.DataFrame(channel2)
+channel2.columns = ['channel']
+channel2.apply(lambda x: x.astype(str).str.lower())
+
 song_name = []
 for i,j in enumerate(df3['tweet_text']):
     for k in df_song_list2['song_name']:
@@ -68,6 +84,9 @@ for i,j in enumerate(df3['tweet_text']):
             tweet_id = df3['tweet_id'].iloc[i]
             hashtag = df3['hashtag'].iloc[i]  
             song_name.append([i,tweet_id,j,k])
+        else:
+            song_name.append(['index','tweet_id','tweet_text',None])
+
 
 song_name = pd.DataFrame(song_name)
 song_name.columns= ['index','tweet_id','tweet_text','song_name']
@@ -79,6 +98,9 @@ for i,j in enumerate(df3['tweet_text']):
             tweet_id = df3['tweet_id'].iloc[i]
             hashtag = df3['hashtag'].iloc[i]
             artist.append([i,tweet_id,j,k])
+        else:
+            artist.append(['index','tweet_id','tweet_text',None])
+
 
 artist = pd.DataFrame(artist)
 artist.columns = ['index','tweet_id','tweet_text','artist']
@@ -96,6 +118,21 @@ for i,j in enumerate(df3['tweet_text']):
 album = pd.DataFrame(album)
 album.columns = ['index','tweet_id','tweet_text','album']
 
+
+channel = []
+for i,j in enumerate(df3['tweet_text']):
+    for k in channel2['channel']:
+        if k != None:
+            if k.lower() in j.lower():
+                tweet_id = df3['tweet_id'].iloc[i]
+                hashtag = df3['hashtag'].iloc[i]
+                channel.append([i,tweet_id,j,k])
+            else:
+                channel.append(['index','tweet_id','tweet_text',None])
+channel = pd.DataFrame(channel)
+channel.columns = ['index','tweet_id','tweet_text','channel']
+
+
 #print((song_name))
 #print(song_name[:1])
 #print(artist[:1])
@@ -103,7 +140,7 @@ album.columns = ['index','tweet_id','tweet_text','album']
 song_name.drop_duplicates(['tweet_id','tweet_text','song_name'], inplace=True)
 artist.drop_duplicates(['tweet_id','tweet_text','artist'], inplace=True)
 album.drop_duplicates(['tweet_id','tweet_text','album'], inplace=True)
-
+channel.drop_duplicates(['tweet_id','tweet_text','channel'], inplace=True)
 #print(len(song_name))
 #print(song_name)
 
@@ -113,11 +150,26 @@ final.drop_duplicates(['tweet_id','tweet_text'], inplace=True)
 final = pd.merge(final,album, on=['tweet_id','tweet_text'],how = 'outer')
 final.drop_duplicates(['tweet_id','tweet_text'], inplace=True)
 
-final2 = final[['tweet_id','tweet_text','song_name','artist','album']]
+final = pd.merge(final,channel, on=['tweet_id','tweet_text'],how = 'outer')
+final.drop_duplicates(['tweet_id','tweet_text'], inplace=True)
+
+final2 = final[['tweet_id','tweet_text','song_name','artist','album','channel']]
 
 #print(final2)
 #print(final2.columns)
 engine = create_engine('postgresql://w205:1234@localhost:5432/final_project')
 final2.to_sql('tweets_new_parse', engine, if_exists='append',index=False)
+
+############# nowplaying ####################
+
+df_rest = df3[~df3.tweet_id.isin(final2.tweet_id)]
+#print(len(df_rest))
+#print(len(df3))
+#print(len(final2)
+
+
+
+
+
 
 
