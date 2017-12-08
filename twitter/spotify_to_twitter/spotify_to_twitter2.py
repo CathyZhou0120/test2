@@ -35,11 +35,11 @@ cur = conn.cursor()
 cur.execute("SELECT max(insert_date)max_date  FROM new_release ")
 max_date = cur.fetchall()
 
-cur.execute("select distinct artist from new_release where insert_date >= %s",(max_date))
+cur.execute("select distinct artist,song_name from new_release where insert_date >= %s",(max_date))
 artist_list = cur.fetchall()
 artist_list2 = []
 for i in artist_list:
-    artist_list2.append(i[0])
+    artist_list2.append([i[0],i[1]])
 
 consumer_key = 'aBwzAuBhDX0KShy4vaQtWlRAY'
 consumer_secret = 'xNZUisl44guCKjJLC2IBnMIDsj9cbCQcrGiUrXNdtQHxbkkPmy'
@@ -52,8 +52,11 @@ auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 
-artist_list3 = [x.encode('UTF8') for x in artist_list2]
+artist_list3 = [[x.encode('UTF8') for x in l] for l in artist_list2]
 
+artist_list4=[]
+for i in artist_list3:
+    artist_list4.append(' '.join(i))
 
 class StdOutListener(StreamListener):
 
@@ -74,7 +77,7 @@ if __name__ == '__main__':
     stream = Stream(auth, l)
 
     #This line filter Twitter Streams to capture data by the keywords: 'python', 'javascript', 'ruby'
-    stream.filter(track=artist_list3)
+    stream.filter(track=artist_list4)
 
 
 
