@@ -34,7 +34,7 @@ redirect_uri = 'http://localhost:8888'
 token = util.prompt_for_user_token(username, scope, client_id, client_secret, redirect_uri)
 sp = spotipy.Spotify(auth=token)
 
-chart = billboard.ChartData('billboard-200') 
+chart = billboard.ChartData('billboard-200',date = '2017-12-16') 
 
 #print(chart)
 album = []
@@ -56,10 +56,13 @@ for i,j in enumerate( album['album']):
         popularity = detail1['popularity']
         release_date = detail1['release_date']
         artist = album['artist'].iloc[i]
+        #chart_date = album['chart_date'].iloc[i]
         album_details.append([j,artist,album_id,artist_id,market,genres,popularity,release_date,date])
-
+    else:
+        album_details.append([j,artist,None,None,None,None,None,None,date])
 album_details = pd.DataFrame(album_details)
 album_details.columns = ['album','artist','album_id','artist_id','market','genres','popularity','release_date','chart_date']
+
 album_details['rank']=album_details.index+1 
 #print(album_details)
 
@@ -67,3 +70,4 @@ engine = create_engine('postgresql://w205:1234@localhost:5432/final_project')
 album_details.to_sql('billboard_top_200_album', engine, if_exists='append',index=False)
 print('billboard top 200 album insert completed')
 
+#print(album_details) 

@@ -37,13 +37,15 @@ for i in df:
 
 df3 = pd.DataFrame(df2)
 df3.columns = ['tweet_id','tweet_text','hashtag']
-#print(df3)
+print(len(df3))
 
 df3.apply(lambda x: x.astype(str).str.lower())
-df3 = df3[df3.astype(str).ne('None').all(1)]
+#df3 = df3[df3.astype(str).ne('None').all(1)]
 
-df3.apply(lambda x: x.astype(str).str.lower())
-df3 = df3[df3.astype(str).ne('None').all(1)]
+#df3.apply(lambda x: x.astype(str).str.lower())
+#df3 = df3[df3.astype(str).ne('None').all(1)]
+
+print(len(df3))
 
 cur.execute("select distinct song_name from billboard_top_100_song  where chart_date :: date >= (select max(chart_date) from billboard_top_100_song):: date ")
 
@@ -182,7 +184,7 @@ final2 = final[['tweet_id','tweet_text','song_name','artist','album','channel']]
 #print(final2)
 #print(final2.columns)
 engine = create_engine('postgresql://w205:1234@localhost:5432/final_project')
-#final2.to_sql('tweets_new_parse', engine, if_exists='append',index=False)
+final2.to_sql('tweets_new_parse', engine, if_exists='append',index=False)
 
 ############# nowplaying ####################
 
