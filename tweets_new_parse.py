@@ -28,7 +28,7 @@ import simplejson
 conn =psycopg2.connect(database="final_project", user="w205", password="1234", host="127.0.0.1", port="5432")
 cur = conn.cursor()
 
-cur.execute("select distinct tweet_id, tweet_text,  entities_hashtags from tweets_new where sys_time::date >= current_date-1 ")
+cur.execute("select distinct tweet_id, tweet_text,  entities_hashtags from tweets_new ")
 df = cur.fetchall()
 
 df2 = []
@@ -45,16 +45,18 @@ df3 = df3[df3.astype(str).ne('None').all(1)]
 df3.apply(lambda x: x.astype(str).str.lower())
 df3 = df3[df3.astype(str).ne('None').all(1)]
 
-cur.execute("select distinct a.song_name, a.artist_name, b.album_name from billboard_100_song_detail a left join billboard_100_artists_album_detail b on a.artist_id = b.artist_id ")
+cur.execute("select distinct song_name from billboard_top_100_song  where chart_date :: date >= (select max(chart_date) from billboard_top_100_song):: date ")
 
 df_song_list = cur.fetchall()
+
+
 df_song_list2=[]
 for i in df_song_list:
-    df_song_list2.append([i[0],i[1],i[2]])
+    df_song_list2.append(i[0])
 
 
 df_song_list2 = pd.DataFrame(df_song_list2)
-df_song_list2.columns = ['song_name', 'artist','album_name']
+df_song_list2.columns = ['song_name']
 
 df_song_list2.apply(lambda x: x.astype(str).str.lower())
 
@@ -77,6 +79,28 @@ channel2 = pd.DataFrame(channel2)
 channel2.columns = ['channel']
 channel2.apply(lambda x: x.astype(str).str.lower())
 
+cur.execute("select distinct name from  billboard_top_100_artist where chart_date :: date >= (select max(chart_date) from billboard_top_100_artist):: date")
+artist = cur.fetchall()
+
+artist2= []
+for i in artist:
+    
+    artist2.append(i[0])
+df_artist = pd.DataFrame(artist2)
+df_artist.columns = ['artist']
+
+
+cur.execute("select distinct album  from billboard_top_200_album  where chart_date :: date >= (select max(chart_date) from billboard_top_200_album):: date")
+album = cur.fetchall()
+
+album2 = []
+for i in album:
+    album2.append(i[0])
+df_album = pd.DataFrame(album2)
+df_album.columns = ['album']
+
+
+
 song_name = []
 for i,j in enumerate(df3['tweet_text']):
     for k in df_song_list2['song_name']:
@@ -93,7 +117,7 @@ song_name.columns= ['index','tweet_id','tweet_text','song_name']
 
 artist = []
 for i,j in enumerate(df3['tweet_text']):
-    for k in df_song_list2['artist']:
+    for k in df_artist['artist']:
         if k.lower() in j.lower():
             tweet_id = df3['tweet_id'].iloc[i]
             hashtag = df3['hashtag'].iloc[i]
@@ -107,7 +131,7 @@ artist.columns = ['index','tweet_id','tweet_text','artist']
 
 album = []
 for i,j in enumerate(df3['tweet_text']):
-    for k in df_song_list2['album_name']:
+    for k in df_album['album']:
         if k != None:
             if k.lower() in j.lower():
                 tweet_id = df3['tweet_id'].iloc[i]
@@ -158,14 +182,14 @@ final2 = final[['tweet_id','tweet_text','song_name','artist','album','channel']]
 #print(final2)
 #print(final2.columns)
 engine = create_engine('postgresql://w205:1234@localhost:5432/final_project')
-final2.to_sql('tweets_new_parse', engine, if_exists='append',index=False)
+#final2.to_sql('tweets_new_parse', engine, if_exists='append',index=False)
 
 ############# nowplaying ####################
 
 df_rest = df3[~df3.tweet_id.isin(final2.tweet_id)]
-#print(len(df_rest))
-#print(len(df3))
-#print(len(final2)
+print('# of records left: ' ,len(df_rest))
+print('Total # of records: ',len(df3))
+print('# of records processed: ', len(final2))
 
 
 
