@@ -34,7 +34,7 @@ from textblob import TextBlob
 conn =psycopg2.connect(database="final_project", user="w205", password="1234", host="127.0.0.1", port="5432")
 cur = conn.cursor()
 
-cur.execute("select distinct tweet_id, tweet_text from tweet_new_10_sub where id >= 1 and id <= 30000")
+cur.execute("select distinct tweet_id, tweet_text from tweet_new_10_sub where id >= 1 and id <= 50000")
 df = cur.fetchall()
 engine = create_engine('postgresql://w205:1234@localhost:5432/final_project')
 
@@ -211,7 +211,7 @@ final3.drop_duplicates(['tweet_id'],inplace= True)
 #print(final3)
 final4 = final3[['tweet_id','removed_text']]
 
-print(final4)
+#print(final4)
 
 ####################### sentiment ################################################3
 
@@ -238,7 +238,7 @@ for i,j, in enumerate(final2['tweet_text']):
 sentiment_all = pd.DataFrame(sentiment_all)
 sentiment_all.columns = ['tweet_id','removed_tweet_text','sentiment']
 sentiment_all.to_sql('sentiment_new_all', engine, if_exists='append',index=False)
-
+print('sentiment finished')
 ############################## clean ##########################
 
 clean_tweet = []
