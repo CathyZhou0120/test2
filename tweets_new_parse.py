@@ -241,12 +241,12 @@ sentiment_all.to_sql('sentiment_new_all', engine, if_exists='append',index=False
 print('sentiment finished')
 ############################## clean ##########################
 
-clean_tweet = []
-for i in final2['tweet_text']:
-    clean = pf.censor(i)
-    clean_tweet.append(clean)
+#clean_tweet = []
+#for i in final2['tweet_text']:
+#    clean = pf.censor(i)
+ #   clean_tweet.append(clean)
 
-final2['clean_tweet']= clean_tweet
+#final2['clean_tweet']= clean_tweet
 
 engine = create_engine('postgresql://w205:1234@localhost:5432/final_project')
 #final2.to_sql('test_parse2', engine, if_exists='append',index=False)
