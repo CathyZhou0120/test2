@@ -1,129 +1,65 @@
-                                 albun_id               artist_id
-0                                    None                    None
-1    spotify:album:6Fr2rQkZ383FcMqFyT7yPr  1uNFoZAHBGtllmzznpCI3s
-2    spotify:album:2aTOwGU66ocsf8IQpOI0XZ  13y7CgLHjMVRMDqxdx0Xdo
-3    spotify:album:5EYjLknce4IokrBlbjSDLk  5rSXSAkZ67PYJSvpUpkOr7
-4    spotify:album:2VVvm4zJlUQm9XmBCvGN6z  3wyVrVrFCkukjdVIdirGVY
-5    spotify:album:1KOmHyNLuOe5YrPhD3Juuf  6fOMl44jA4Sp5b9PpYCkzz
-6    spotify:album:6GBu7GU6dztLYlZuUHiwA2  3BmGtnKgCSGYIUhmivXKWX
-7    spotify:album:1lhNch5NkOONvFhRPh8qaj  718COspgdWOnwOFpJHRZHS
-8    spotify:album:6twKQ0EsUJHVlAr6XBylrj  20JZFwl6HVl6yg8a4H3ZqK
-9    spotify:album:6QdCohkHKNTVoaSx1ZzitH  2ye2Wgw4gimLv2eAKyk1NB
-10   spotify:album:7GjG91tyHQNGEHzKJaqOi0  26VFTg2z8YR0cCuwLzESi2
-11   spotify:album:4oCGmYsAQOWt2ACWTpNUU6  163tK9Wjr9P9DmM0AVK7lm
-12   spotify:album:3My4DXwRjAS5HXontsJx1A  6ZjFtWeHP9XN7FeKSUe80S
-13   spotify:album:7gmak9ZGm10y4PtZa9SBQn  1Mxqyy3pSjf8kZZL4QVxS0
-14   spotify:album:5lAFtj2EwOiV0Rp7PrqbOU  0YWxKQj2Go9CGHCp77UOyy
-15   spotify:album:4kqXw1yf9EKamws0zCarGt  6cXMpsP9x0SH4kFfMyVezF
-16   spotify:album:71QyofYesSsRMwFOTafnhB  1anyVhU62p31KFi8MEzkbf
-17   spotify:album:278c24ae4JsSRpOEzlaghQ  7wlFDEWiM5OoIAt8RSli8b
-18   spotify:album:2i9W1XdzepsyFq3DkqXXzy  0LyfQWJT6nXafLPZqxe9Of
-19   spotify:album:68FGnF6LTrgtYHQDVgPkZL  0LyfQWJT6nXafLPZqxe9Of
-20   spotify:album:6hPkbAV3ZXpGZBGUvL6jVM  6XyY86QOPPrYVGvF9ch6wz
-21   spotify:album:6b7ycwe2rxq6FkaupNuGoS  3WrFJ7ztbogyGnTHbHJFl2
-22   spotify:album:1IbfOjLqUSkhtXLpX31WZq  0u2FHSq3ln94y5Q57xazwf
-23   spotify:album:51s30K7a36ORx6AAaPBRRY  53XhwfbYqKCa1cC15pYq2q
-24   spotify:album:7CAAClnSiXdMibPT1oyl4k  5ZS223C6JyBfXasXxrRqOk
-25   spotify:album:1EiBrlQW6W6H1mZI4N7Ne4  1eEfMU2AhEo7XnKgL7c304
-26   spotify:album:6uSnHSIBGKUiW1uKQLYZ7w  4NpFxQe2UvRCAjto3JqlSl
-27   spotify:album:0DB01cPUt66gHPLL1JcdQq  5WUlDfRSoLAfcVSX1WnrxN
-28   spotify:album:4VzzEviJGYUtAeSsJlI9QB  4kI8Ie27vjvonwaB2ePh8T
-29   spotify:album:0K4pIOOsfJ9lK8OjrZfXzd  4dpARuHxo51G3z768sgnrY
-..                                    ...                     ...
-126  spotify:album:72qA6s4fjF8Y2VX1UDMfp2  3JhNCzhSMTxs9WLGJJxWOY
-127  spotify:album:4IFpj2jyRcugt1yzH82m3E  0xOeVMOz2fVg5BJY3N6akT
-128  spotify:album:40GMAhriYJRO1rsY4YdrZb  3TVXtAsR1Inumwj472S9r4
-129  spotify:album:1WBZyULtlANBKed7Zf9cDP  1ZwdS5xdxEREPySFridCfh
-130  spotify:album:4PgleR09JVnm3zY1fW3XBA  0du5cEVh5yTK9QJze8zA0C
-131  spotify:album:63MKT9hwmiMFFdFp5SdB1p  1uNFoZAHBGtllmzznpCI3s
-132  spotify:album:2aPGOorWvDqkyMyIMtx2L5  5dr7fkIRO4K14g7U8SCue5
-133  spotify:album:6BOQkxcHspMoRWEwEexf4l  3vbKDsSS70ZX9D2OcvbZmS
-134  spotify:album:7gsWAHLeT0w7es6FofOXk1  5K4W6rqBFWDnAN6FQUkS6x
-135  spotify:album:2Jg7JZ0ZXOGje1bkq7CVgK  2wY79sveU1sp5g7SokKOiI
-136  spotify:album:2cWBwpqMsDJC1ZUwz813lo  7dGJo4pcD2V6oG8kP0tJRR
-137  spotify:album:5s0rmjP8XOPhP6HhqOhuyC  246dkjvS1zLTtiykXe5h60
-138  spotify:album:1IwTlARBAG1aVi9uIBmZqm  4mxWe1mtYIYfP040G38yvS
-139  spotify:album:7lxHnls3yQNl8B9bILmHj7  4YLtscXsxbVgi031ovDDdh
-140  spotify:album:4Rk63Jz61wwbmQru0PdltI  0LyfQWJT6nXafLPZqxe9Of
-141  spotify:album:7hwhuEQT4Fp5bzwLlYZtiz  1KCSPY1glIKqW2TotWuXOR
-142  spotify:album:5DL2Z5x7UJsWH1HhE9j8nd  3e7awlrlDSwF3iM0WBjGMp
-143  spotify:album:7ae73nWyKrrH9wwGm97RIA  6Xgp2XMz1fhVYe7i6yNAax
-144  spotify:album:1DTBcVfk3zXPHRmgpY6rFZ  4MoAOfV4ROWofLG3a3hhBN
-145  spotify:album:2QJmrSgbdM35R67eoGQo4j  06HL4z0CvFAxyc27GXpf02
-146  spotify:album:0V7c0hnrLUFJyHNtjiAT2E  2kucQ9jQwuD8jWdtR9Ef38
-147  spotify:album:0ybUMi0SERu1UqtTivSSFb  7EK1bQADBoqbYXnT4Cqv9w
-148  spotify:album:29big2asVjHGaNijZP9dDU  6I3M904Y9IwgDjrQ9pANiB
-149  spotify:album:6HrJ1inCYhLfhENJlNbSEf  2ye2Wgw4gimLv2eAKyk1NB
-150  spotify:album:0P3oVJBFOv3TDXlYRhGL7s  1Xyo4u8uXC1ZmMpatF05PJ
-151  spotify:album:187UNqZ7MX3neMYkkevmdm  1RyvyyTE3xzB2ZywiAwp0i
-152  spotify:album:4JPguzRps3kuWDD5GS6oXr  69GGBxA162lTqCwzJG5jLp
-153  spotify:album:5JWR4pqfxra6JEeUqNMPO7  32vWCbZh0xZ4o9gkz4PsEU
-154  spotify:album:2sCwWLX6DJgjCACS0iEBHD  21WS9wngs9AqFckK7yYJPM
-155  spotify:album:1HiN2YXZcc3EjmVZ4WjfBk  4xRYI6VqpkE3UwrDrAZL8L
-
-[156 rows x 2 columns]
                   artist_id                        name    follower  \
 0                      None                        None         NaN   
-1    1uNFoZAHBGtllmzznpCI3s               Justin Bieber  15472842.0   
-2    13y7CgLHjMVRMDqxdx0Xdo                  Gucci Mane   1489034.0   
-3    5rSXSAkZ67PYJSvpUpkOr7             Backstreet Boys   1114504.0   
-4    3wyVrVrFCkukjdVIdirGVY                    Lil Pump   1431473.0   
-5    6fOMl44jA4Sp5b9PpYCkzz                          NF    540492.0   
-6    3BmGtnKgCSGYIUhmivXKWX              Kelly Clarkson   2214800.0   
-7    718COspgdWOnwOFpJHRZHS                  Luke Combs    157126.0   
-8    20JZFwl6HVl6yg8a4H3ZqK         Panic! At The Disco   3183534.0   
-9    2ye2Wgw4gimLv2eAKyk1NB                   Metallica   4845571.0   
-10   26VFTg2z8YR0cCuwLzESi2                      Halsey   2367965.0   
-11   163tK9Wjr9P9DmM0AVK7lm                       Lorde   2706829.0   
-12   6ZjFtWeHP9XN7FeKSUe80S                 Bing Crosby    149057.0   
-13   1Mxqyy3pSjf8kZZL4QVxS0               Frank Sinatra   1898316.0   
-14   0YWxKQj2Go9CGHCp77UOyy                    Fabolous    536138.0   
-15   6cXMpsP9x0SH4kFfMyVezF                 Josh Groban    262789.0   
-16   1anyVhU62p31KFi8MEzkbf           Chance The Rapper   2255255.0   
-17   7wlFDEWiM5OoIAt8RSli8b  YoungBoy Never Broke Again    299316.0   
-18   0LyfQWJT6nXafLPZqxe9Of             Various Artists    320951.0   
-19   0LyfQWJT6nXafLPZqxe9Of             Various Artists    320951.0   
-20   6XyY86QOPPrYVGvF9ch6wz                 Linkin Park   6358578.0   
-21   3WrFJ7ztbogyGnTHbHJFl2                 The Beatles   5191845.0   
-22   0u2FHSq3ln94y5Q57xazwf                 Keith Urban   1562549.0   
-23   53XhwfbYqKCa1cC15pYq2q             Imagine Dragons   6536267.0   
-24   5ZS223C6JyBfXasXxrRqOk                  Jhene Aiko   1277877.0   
-25   1eEfMU2AhEo7XnKgL7c304                  Carpenters    333680.0   
-26   4NpFxQe2UvRCAjto3JqlSl             Greta Van Fleet     88589.0   
-27   5WUlDfRSoLAfcVSX1WnrxN                         Sia   5129280.0   
-28   4kI8Ie27vjvonwaB2ePh8T           Portugal. The Man    534116.0   
-29   4dpARuHxo51G3z768sgnrY                       Adele   7545544.0   
+1    1uNFoZAHBGtllmzznpCI3s               Justin Bieber  15473758.0   
+2    13y7CgLHjMVRMDqxdx0Xdo                  Gucci Mane   1489169.0   
+3    5rSXSAkZ67PYJSvpUpkOr7             Backstreet Boys   1114549.0   
+4    3wyVrVrFCkukjdVIdirGVY                    Lil Pump   1431881.0   
+5    6fOMl44jA4Sp5b9PpYCkzz                          NF    540582.0   
+6    3BmGtnKgCSGYIUhmivXKWX              Kelly Clarkson   2214917.0   
+7    718COspgdWOnwOFpJHRZHS                  Luke Combs    157163.0   
+8    20JZFwl6HVl6yg8a4H3ZqK         Panic! At The Disco   3183668.0   
+9    2ye2Wgw4gimLv2eAKyk1NB                   Metallica   4845874.0   
+10   26VFTg2z8YR0cCuwLzESi2                      Halsey   2368131.0   
+11   163tK9Wjr9P9DmM0AVK7lm                       Lorde   2706901.0   
+12   6ZjFtWeHP9XN7FeKSUe80S                 Bing Crosby    149062.0   
+13   1Mxqyy3pSjf8kZZL4QVxS0               Frank Sinatra   1898377.0   
+14   0YWxKQj2Go9CGHCp77UOyy                    Fabolous    536183.0   
+15   6cXMpsP9x0SH4kFfMyVezF                 Josh Groban    262797.0   
+16   1anyVhU62p31KFi8MEzkbf           Chance The Rapper   2255446.0   
+17   7wlFDEWiM5OoIAt8RSli8b  YoungBoy Never Broke Again    299427.0   
+18   0LyfQWJT6nXafLPZqxe9Of             Various Artists    320960.0   
+19   0LyfQWJT6nXafLPZqxe9Of             Various Artists    320960.0   
+20   6XyY86QOPPrYVGvF9ch6wz                 Linkin Park   6358924.0   
+21   3WrFJ7ztbogyGnTHbHJFl2                 The Beatles   5192226.0   
+22   0u2FHSq3ln94y5Q57xazwf                 Keith Urban   1562695.0   
+23   53XhwfbYqKCa1cC15pYq2q             Imagine Dragons   6536664.0   
+24   5ZS223C6JyBfXasXxrRqOk                  Jhene Aiko   1277962.0   
+25   1eEfMU2AhEo7XnKgL7c304                  Carpenters    333700.0   
+26   4NpFxQe2UvRCAjto3JqlSl             Greta Van Fleet     88608.0   
+27   5WUlDfRSoLAfcVSX1WnrxN                         Sia   5129393.0   
+28   4kI8Ie27vjvonwaB2ePh8T           Portugal. The Man    534147.0   
+29   4dpARuHxo51G3z768sgnrY                       Adele   7545765.0   
 ..                      ...                         ...         ...   
-126  3JhNCzhSMTxs9WLGJJxWOY                  Macklemore    746191.0   
-127  0xOeVMOz2fVg5BJY3N6akT                 Jaden Smith    200861.0   
-128  3TVXtAsR1Inumwj472S9r4                       Drake  14509726.0   
-129  1ZwdS5xdxEREPySFridCfh                        2Pac   3275629.0   
-130  0du5cEVh5yTK9QJze8zA0C                  Bruno Mars   9131413.0   
-131  1uNFoZAHBGtllmzznpCI3s               Justin Bieber  15472850.0   
+126  3JhNCzhSMTxs9WLGJJxWOY                  Macklemore    746220.0   
+127  0xOeVMOz2fVg5BJY3N6akT                 Jaden Smith    200922.0   
+128  3TVXtAsR1Inumwj472S9r4                       Drake  14510481.0   
+129  1ZwdS5xdxEREPySFridCfh                        2Pac   3275774.0   
+130  0du5cEVh5yTK9QJze8zA0C                  Bruno Mars   9131903.0   
+131  1uNFoZAHBGtllmzznpCI3s               Justin Bieber  15473773.0   
 132  5dr7fkIRO4K14g7U8SCue5                The Blasters     10576.0   
-133  3vbKDsSS70ZX9D2OcvbZmS                        Beck    680385.0   
-134  5K4W6rqBFWDnAN6FQUkS6x                  Kanye West   5983924.0   
-135  2wY79sveU1sp5g7SokKOiI                   Sam Smith   4334165.0   
-136  7dGJo4pcD2V6oG8kP0tJRR                      Eminem  12099390.0   
-137  246dkjvS1zLTtiykXe5h60                 Post Malone   2156727.0   
-138  4mxWe1mtYIYfP040G38yvS                Alan Jackson    638328.0   
-139  4YLtscXsxbVgi031ovDDdh             Chris Stapleton    543585.0   
-140  0LyfQWJT6nXafLPZqxe9Of             Various Artists    320951.0   
-141  1KCSPY1glIKqW2TotWuXOR                        P!nk   3196456.0   
-142  3e7awlrlDSwF3iM0WBjGMp                  Little Mix   3056663.0   
-143  6Xgp2XMz1fhVYe7i6yNAax                Trippie Redd    240112.0   
-144  4MoAOfV4ROWofLG3a3hhBN                   Jon Pardi    254581.0   
-145  06HL4z0CvFAxyc27GXpf02                Taylor Swift   8356006.0   
-146  2kucQ9jQwuD8jWdtR9Ef38                    Sam Hunt    898602.0   
-147  7EK1bQADBoqbYXnT4Cqv9w                 John Denver    272384.0   
-148  6I3M904Y9IwgDjrQ9pANiB                     Kenny G    245231.0   
-149  2ye2Wgw4gimLv2eAKyk1NB                   Metallica   4845580.0   
-150  1Xyo4u8uXC1ZmMpatF05PJ                  The Weeknd   8630347.0   
-151  1RyvyyTE3xzB2ZywiAwp0i                      Future   4941821.0   
-152  69GGBxA162lTqCwzJG5jLp            The Chainsmokers   4796196.0   
-153  32vWCbZh0xZ4o9gkz4PsEU                Dolly Parton    420026.0   
-154  21WS9wngs9AqFckK7yYJPM                    PnB Rock    758041.0   
-155  4xRYI6VqpkE3UwrDrAZL8L                       Logic   1828840.0   
+133  3vbKDsSS70ZX9D2OcvbZmS                        Beck    680400.0   
+134  5K4W6rqBFWDnAN6FQUkS6x                  Kanye West   5984174.0   
+135  2wY79sveU1sp5g7SokKOiI                   Sam Smith   4334410.0   
+136  7dGJo4pcD2V6oG8kP0tJRR                      Eminem  12100059.0   
+137  246dkjvS1zLTtiykXe5h60                 Post Malone   2157030.0   
+138  4mxWe1mtYIYfP040G38yvS                Alan Jackson    638369.0   
+139  4YLtscXsxbVgi031ovDDdh             Chris Stapleton    543611.0   
+140  0LyfQWJT6nXafLPZqxe9Of             Various Artists    320960.0   
+141  1KCSPY1glIKqW2TotWuXOR                        P!nk   3196542.0   
+142  3e7awlrlDSwF3iM0WBjGMp                  Little Mix   3056799.0   
+143  6Xgp2XMz1fhVYe7i6yNAax                Trippie Redd    240274.0   
+144  4MoAOfV4ROWofLG3a3hhBN                   Jon Pardi    254619.0   
+145  06HL4z0CvFAxyc27GXpf02                Taylor Swift   8356650.0   
+146  2kucQ9jQwuD8jWdtR9Ef38                    Sam Hunt    898691.0   
+147  7EK1bQADBoqbYXnT4Cqv9w                 John Denver    272395.0   
+148  6I3M904Y9IwgDjrQ9pANiB                     Kenny G    245246.0   
+149  2ye2Wgw4gimLv2eAKyk1NB                   Metallica   4845879.0   
+150  1Xyo4u8uXC1ZmMpatF05PJ                  The Weeknd   8630658.0   
+151  1RyvyyTE3xzB2ZywiAwp0i                      Future   4942161.0   
+152  69GGBxA162lTqCwzJG5jLp            The Chainsmokers   4796616.0   
+153  32vWCbZh0xZ4o9gkz4PsEU                Dolly Parton    420042.0   
+154  21WS9wngs9AqFckK7yYJPM                    PnB Rock    758178.0   
+155  4xRYI6VqpkE3UwrDrAZL8L                       Logic   1828943.0   
 
                                                  genre  \
 0                                                 None   

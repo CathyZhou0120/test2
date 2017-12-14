@@ -43,7 +43,7 @@ redirect_uri = 'http://localhost:8888'
 token = util.prompt_for_user_token(username, scope, client_id, client_secret, redirect_uri)
 sp = spotipy.Spotify(auth=token)
 
-print(df3)
+#print(df3)
 
 artist_details = []
 for i in df3['artist_id']:
