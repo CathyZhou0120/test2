@@ -34,7 +34,7 @@ from textblob import TextBlob
 conn =psycopg2.connect(database="final_project", user="w205", password="1234", host="127.0.0.1", port="5432")
 cur = conn.cursor()
 
-cur.execute("select distinct tweet_id, tweet_text from tweet_new_10_sub where id >=  427000  and id <= 497000")
+cur.execute("select distinct tweet_id, tweet_text from tweets_new_sub where id >=  306000  and id <= 400000")
 df = cur.fetchall()
 engine = create_engine('postgresql://w205:1234@localhost:5432/final_project')
 
@@ -175,11 +175,11 @@ channel.drop_duplicates(['tweet_id','tweet_text','channel'],inplace=True)
 print('channel',len(channel))
 
 final = pd.merge(song_name,artist, on=['tweet_id','tweet_text'],how = 'outer')
-final.drop_duplicates(['tweet_id','tweet_text','song_name','artist'],inplace=True)
+final.drop_duplicates(['tweet_id','tweet_text','song_name','artist','album','channel'],inplace=True)
 
 
 final = pd.merge(final,album, on=['tweet_id','tweet_text'],how = 'outer')
-final.drop_duplicates(['tweet_id','tweet_text','song_name','artist','album'],inplace=True)
+final.drop_duplicates(['tweet_id','tweet_text','song_name','artist','album','channel'],inplace=True)
 
 final = pd.merge(final,channel, on=['tweet_id','tweet_text'],how = 'outer')
 final.drop_duplicates(['tweet_id','tweet_text','song_name','artist','album','channel'],inplace=True)

@@ -43,7 +43,7 @@ redirect_uri = 'http://localhost:8888'
 token = util.prompt_for_user_token(username, scope, client_id, client_secret, redirect_uri)
 sp = spotipy.Spotify(auth=token)
 
-#print(df3)
+print(df3)
 
 artist_details = []
 for i in df3['artist_id']:
@@ -70,7 +70,7 @@ for i in df3['artist_id']:
 artist_details2 = pd.DataFrame(artist_details)
 artist_details2.columns = ['artist_id','name','follower','genre','spotify_id','image','popularity','related_artist']
 
-#print(artist_details2)
+print(artist_details2)
 
 engine = create_engine('postgresql://w205:1234@localhost:5432/final_project')
 artist_details2.to_sql('billboard_top_200_album_artist_detail', engine, if_exists='append',index=False)

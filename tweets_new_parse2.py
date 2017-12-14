@@ -34,7 +34,7 @@ from textblob import TextBlob
 conn =psycopg2.connect(database="final_project", user="w205", password="1234", host="127.0.0.1", port="5432")
 cur = conn.cursor()
 
-cur.execute("select distinct tweet_id, tweet_text from tweet_new_10_sub where id >=  427000  and id <= 497000")
+cur.execute("select distinct tweet_id, tweet_text from tweets_new_sub where id >=  500000  and id <= 550000")
 df = cur.fetchall()
 engine = create_engine('postgresql://w205:1234@localhost:5432/final_project')
 
@@ -44,7 +44,7 @@ for i in df:
 
 df3 = pd.DataFrame(df2)
 df3.columns = ['tweet_id','tweet_text']
-#print(len(df3))
+print(len(df3))
 
 df3.apply(lambda x: x.astype(str).str.lower())
 

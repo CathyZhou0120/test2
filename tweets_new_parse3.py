@@ -34,7 +34,7 @@ from textblob import TextBlob
 conn =psycopg2.connect(database="final_project", user="w205", password="1234", host="127.0.0.1", port="5432")
 cur = conn.cursor()
 
-cur.execute("select distinct tweet_id, tweet_text from tweet_new_10_sub where id >=  427000  and id <= 497000")
+cur.execute("select distinct tweet_id, tweet_text from tweets_hash_sub where id >=   400400  and id <= 550550")
 df = cur.fetchall()
 engine = create_engine('postgresql://w205:1234@localhost:5432/final_project')
 
@@ -111,8 +111,8 @@ for i,j in enumerate(df3['tweet_text']):
             tweet_id = df3['tweet_id'].iloc[i]
             #hashtag = df3['hashtag'].iloc[i]  
             song_name.append([i,tweet_id,j,k])
-        else:
-            song_name.append([i,df3['tweet_id'].iloc[i],df3['tweet_text'].iloc[i],None])
+#        else:
+ #           song_name.append([i,df3['tweet_id'].iloc[i],df3['tweet_text'].iloc[i],None])
 
 
 song_name = pd.DataFrame(song_name)
@@ -127,8 +127,8 @@ for i,j in enumerate(df3['tweet_text']):
             tweet_id = df3['tweet_id'].iloc[i]
             #hashtag = df3['hashtag'].iloc[i]
             artist.append([i,tweet_id,j,k])
-        else:
-            artist.append([i,df3['tweet_id'].iloc[i],df3['tweet_text'].iloc[i],None])
+  #      else:
+   #         artist.append([i,df3['tweet_id'].iloc[i],df3['tweet_text'].iloc[i],None])
 
 
 artist = pd.DataFrame(artist)
@@ -144,8 +144,8 @@ for i,j in enumerate(df3['tweet_text']):
                 tweet_id = df3['tweet_id'].iloc[i]
                # hashtag = df3['hashtag'].iloc[i]
                 album.append([i,tweet_id,j,k])
-        else:
-            album.append([i,df3['tweet_id'].iloc[i],df3['tweet_text'].iloc[i],None])
+    #    else:
+     #       album.append([i,df3['tweet_id'].iloc[i],df3['tweet_text'].iloc[i],None])
 album = pd.DataFrame(album)
 album.columns = ['index','tweet_id','tweet_text','album']
 
@@ -159,8 +159,8 @@ for i,j in enumerate(df3['tweet_text']):
                 tweet_id = df3['tweet_id'].iloc[i]
                # hashtag = df3['hashtag'].iloc[i]
                 channel.append([i,tweet_id,j,k])
-        else:
-            channel.append([i,df3['tweet_id'].iloc[i],df3['tweet_text'].iloc[i],None])
+      #  else:
+       #     channel.append([i,df3['tweet_id'].iloc[i],df3['tweet_text'].iloc[i],None])
 channel = pd.DataFrame(channel)
 channel.columns = ['index','tweet_id','tweet_text','channel']
 
@@ -224,7 +224,7 @@ for i,j in enumerate(final4['removed_text']):
    
 sentiment_removed = pd.DataFrame(sentiment_removed)
 sentiment_removed.columns = ['tweet_id','removed_tweet_text','sentiment']
-sentiment_removed.to_sql('sentiment_new_removed', engine, if_exists='append',index=False)
+sentiment_removed.to_sql('sentiment_hash_removed', engine, if_exists='append',index=False)
 #print(sentiment_removed)
 
 
@@ -237,7 +237,7 @@ for i,j, in enumerate(final2['tweet_text']):
 
 sentiment_all = pd.DataFrame(sentiment_all)
 sentiment_all.columns = ['tweet_id','removed_tweet_text','sentiment']
-sentiment_all.to_sql('sentiment_new_all', engine, if_exists='append',index=False)
+sentiment_all.to_sql('sentiment_hash_all', engine, if_exists='append',index=False)
 print('sentiment finished')
 ############################## clean ##########################
 
@@ -252,7 +252,7 @@ engine = create_engine('postgresql://w205:1234@localhost:5432/final_project')
 #final2.to_sql('test_parse2', engine, if_exists='append',index=False)
 #print(final2)
 
-final2.to_sql('tweets_new_parse_two', engine, if_exists='append',index=False)
+final2.to_sql('tweets_hash_parse_two', engine, if_exists='append',index=False)
 
 
 ############# nowplaying ####################
@@ -263,7 +263,27 @@ print('Total # of records: ',len(df3))
 print('# of records processed: ', len(final2))
 
 
+data_final=[]
+for i,j in enumerate(df_rest['tweet_text']):
+    text = str(j)
+    m = re.search('NowPlaying\s(.+?)\sby\s(.+?)\son\s(.+)', text, re.IGNORECASE)
+    if m:
+        tweet_id = df_rest['tweet_id'].iloc[i]
+        data_final.append([tweet_id, j,m.group(1),m.group(2),None,m.group(3)])
 
+data_final = pd.DataFrame(data_final)
+#print(len(data_final))
+
+if len(data_final) >0:
+    data_final.columns = ['tweet_id','tweet_text','song_name','artist','album','channel']
+#print(len(data_final))
+    df_all = pd.concat([final2,data_final],ignore_index=True)
+else:
+    df_all = final2
+
+engine = create_engine('postgresql://w205:1234@localhost:5432/final_project')
+#df_all.to_sql('tweets_hash_parse', engine, if_exists='append',index=False)
+df_all.to_sql('tweets_hash_parse_two', engine, if_exists='append',index=False)
 
 
 
